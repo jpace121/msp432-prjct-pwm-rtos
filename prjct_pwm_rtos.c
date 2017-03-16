@@ -21,6 +21,8 @@
 /* Board Header file */
 #include "Board.h"
 
+#include <pthread.h>
+
 /*
  * Global variables (better approach?)
  */
@@ -30,7 +32,7 @@ PWM_Handle redPWM, greenPWM, bluePWM;
  * Prototypes.
  */
 void buttonInt(uint_least8_t);
-void timerCallback(Timer_Handle);
+void *timerCallback(void *);
 
 /*
  * Typedefs. (Should this go somewhere else?)
@@ -44,13 +46,15 @@ typedef enum RGB_Opt {RED, GREEN, BLUE} RGB_Opt;
 void *mainThread(void *arg0)
 {
     PWM_Params red_params, green_params, blue_params;
-    Timer_Params timer_params;
-    Timer_Handle timer_handle;
+    pthread_t led_thread;
+    pthread_attr_t led_thread_attrs;
+    struct sched_param priParam;
+    int retc;
 
     /* Call driver init functions */
     GPIO_init();
     PWM_init();
-    Timer_init();
+    //Timer_init();
     // I2C_init();
     // SDSPI_init();
     // SPI_init();
@@ -92,28 +96,38 @@ void *mainThread(void *arg0)
     PWM_setDuty(greenPWM, 0);
     PWM_setDuty(bluePWM, 0);
 
-    Timer_Params_init(&timer_params);
-    timer_params.periodUnits = Timer_PERIOD_HZ;
-    timer_params.period = 1;
-    timer_params.timerMode = Timer_CONTINUOUS_CALLBACK;
-    timer_params.timerCallback = timerCallback;
+    // Set up thread for blinky.
 
-    timer_handle = Timer_open(Board_TIMER, &timer_params);
+    priParam.sched_priority = 1;
+    pthread_attr_init(&led_thread_attrs);
+    pthread_attr_setdetachstate(&led_thread_attrs, PTHREAD_CREATE_DETACHED);
+    pthread_attr_setschedparam(&led_thread_attrs, &priParam);
 
+    retc = pthread_create(&led_thread, &led_thread_attrs, timerCallback, NULL);
+
+    if(retc!=0)
+    {
+        while(1)
+        {
+        }
+    }
 
     PWM_start(redPWM);
     PWM_start(bluePWM);
     PWM_start(greenPWM);
 
-    Timer_start(timer_handle);
 
-    while (1) {
-    }
+    return 0;
 }
 
-void timerCallback(Timer_Handle handle)
+void* timerCallback(void* arg0)
 {
-    GPIO_toggle(Board_GPIO_REDLED);
+    while(1)
+    {
+        GPIO_toggle(Board_GPIO_REDLED);
+        sleep(1);
+    }
+
 }
 
 void buttonInt(uint_least8_t pin)

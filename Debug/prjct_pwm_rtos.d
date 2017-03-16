@@ -168,6 +168,17 @@ prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/source/ti/drivers/UAR
 prjct_pwm_rtos.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/stddef.h
 prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/source/ti/drivers/Watchdog.h
 prjct_pwm_rtos.obj: ../MSP_EXP432P401R.h
+prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/posix/pthread.h
+prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/knl/Task.h
+prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/knl/package/Task_SupportProxy.h
+prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/posix/time.h
+prjct_pwm_rtos.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/../include/time.h
+prjct_pwm_rtos.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/linkage.h
+prjct_pwm_rtos.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/abi_prefix.h
+prjct_pwm_rtos.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/stddef.h
+prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/posix/signal.h
+prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/posix/sched.h
+prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/knl/Task.h
 
 ../prjct_pwm_rtos.c: 
 C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/posix/unistd.h: 
@@ -337,3 +348,14 @@ C:/ti/simplelink_msp432_sdk_1_30_00_40/source/ti/drivers/UART.h:
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/stddef.h: 
 C:/ti/simplelink_msp432_sdk_1_30_00_40/source/ti/drivers/Watchdog.h: 
 ../MSP_EXP432P401R.h: 
+C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/posix/pthread.h: 
+C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/knl/Task.h: 
+C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/knl/package/Task_SupportProxy.h: 
+C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/posix/time.h: 
+C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/../include/time.h: 
+C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/linkage.h: 
+C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/abi_prefix.h: 
+C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/stddef.h: 
+C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/posix/signal.h: 
+C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/posix/sched.h: 
+C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/knl/Task.h: 
