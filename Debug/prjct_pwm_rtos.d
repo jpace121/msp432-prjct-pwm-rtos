@@ -152,6 +152,7 @@ prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/package
 prjct_pwm_rtos.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/stddef.h
 prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/source/ti/drivers/GPIO.h
 prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/source/ti/drivers/PWM.h
+prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/source/ti/drivers/Timer.h
 prjct_pwm_rtos.obj: ../Board.h
 prjct_pwm_rtos.obj: C:/ti/simplelink_msp432_sdk_1_30_00_40/source/ti/drivers/ADC.h
 prjct_pwm_rtos.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/stdbool.h
@@ -320,6 +321,7 @@ C:/ti/simplelink_msp432_sdk_1_30_00_40/kernel/tirtos/packages/ti/sysbios/knl/Eve
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/stddef.h: 
 C:/ti/simplelink_msp432_sdk_1_30_00_40/source/ti/drivers/GPIO.h: 
 C:/ti/simplelink_msp432_sdk_1_30_00_40/source/ti/drivers/PWM.h: 
+C:/ti/simplelink_msp432_sdk_1_30_00_40/source/ti/drivers/Timer.h: 
 ../Board.h: 
 C:/ti/simplelink_msp432_sdk_1_30_00_40/source/ti/drivers/ADC.h: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include/stdbool.h: 

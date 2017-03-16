@@ -11,6 +11,7 @@
 /* Driver Header files */
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/PWM.h>
+#include <ti/drivers/Timer.h>
 // #include <ti/drivers/I2C.h>
 // #include <ti/drivers/SDSPI.h>
 // #include <ti/drivers/SPI.h>
@@ -29,6 +30,7 @@ PWM_Handle redPWM, greenPWM, bluePWM;
  * Prototypes.
  */
 void buttonInt(uint_least8_t);
+void timerCallback(Timer_Handle);
 
 /*
  * Typedefs. (Should this go somewhere else?)
@@ -42,10 +44,13 @@ typedef enum RGB_Opt {RED, GREEN, BLUE} RGB_Opt;
 void *mainThread(void *arg0)
 {
     PWM_Params red_params, green_params, blue_params;
+    Timer_Params timer_params;
+    Timer_Handle timer_handle;
 
     /* Call driver init functions */
     GPIO_init();
     PWM_init();
+    Timer_init();
     // I2C_init();
     // SDSPI_init();
     // SPI_init();
@@ -56,6 +61,8 @@ void *mainThread(void *arg0)
     GPIO_setCallback(Board_GPIO_BUTTON1, buttonInt);
     GPIO_enableInt(Board_GPIO_BUTTON0);
     GPIO_enableInt(Board_GPIO_BUTTON1);
+
+    GPIO_write(Board_GPIO_REDLED, Board_GPIO_LED_OFF);
 
     PWM_Params_init(&red_params);
     PWM_Params_init(&green_params);
@@ -85,12 +92,28 @@ void *mainThread(void *arg0)
     PWM_setDuty(greenPWM, 0);
     PWM_setDuty(bluePWM, 0);
 
+    Timer_Params_init(&timer_params);
+    timer_params.periodUnits = Timer_PERIOD_HZ;
+    timer_params.period = 1;
+    timer_params.timerMode = Timer_CONTINUOUS_CALLBACK;
+    timer_params.timerCallback = timerCallback;
+
+    timer_handle = Timer_open(Board_TIMER, &timer_params);
+
+
     PWM_start(redPWM);
     PWM_start(bluePWM);
     PWM_start(greenPWM);
 
+    Timer_start(timer_handle);
+
     while (1) {
     }
+}
+
+void timerCallback(Timer_Handle handle)
+{
+    GPIO_toggle(Board_GPIO_REDLED);
 }
 
 void buttonInt(uint_least8_t pin)

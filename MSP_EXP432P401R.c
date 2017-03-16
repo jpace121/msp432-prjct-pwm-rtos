@@ -612,26 +612,6 @@ const uint_least8_t SPI_count = MSP_EXP432P401R_SPICOUNT;
 TimerMSP432_Object timerMSP432Objects[MSP_EXP432P401R_TIMERCOUNT];
 
 const TimerMSP432_HWAttrs timerMSP432HWAttrs[MSP_EXP432P401R_TIMERCOUNT] = {
-    /* Timer32_0 */
-    {
-        .timerBaseAddress = TIMER32_0_BASE,
-        .clockSource = TIMER_A_CLOCKSOURCE_SMCLK,
-        .intNum = INT_T32_INT1,
-        .intPriority = ~0
-    },
-    {
-        .timerBaseAddress = TIMER32_1_BASE,
-        .clockSource = TIMER_A_CLOCKSOURCE_SMCLK,
-        .intNum = INT_T32_INT2,
-        .intPriority = ~0
-    },
-    /* Timer_A1 */
-    {
-        .timerBaseAddress = TIMER_A1_BASE,
-        .clockSource = TIMER_A_CLOCKSOURCE_ACLK,
-        .intNum = INT_TA1_0,
-        .intPriority = ~0
-    },
     /* Timer_A2 */
     {
         .timerBaseAddress = TIMER_A2_BASE,
@@ -639,41 +619,14 @@ const TimerMSP432_HWAttrs timerMSP432HWAttrs[MSP_EXP432P401R_TIMERCOUNT] = {
         .intNum = INT_TA2_0,
         .intPriority = ~0
     },
-    /* Timer_A3 */
-    {
-        .timerBaseAddress = TIMER_A3_BASE,
-        .clockSource = TIMER_A_CLOCKSOURCE_ACLK,
-        .intNum = INT_TA3_0,
-        .intPriority = ~0
-    }
 };
 
 const Timer_Config Timer_config[MSP_EXP432P401R_TIMERCOUNT] = {
-    {
-        .fxnTablePtr = &TimerMSP432_Timer32_fxnTable,
-        .object = &timerMSP432Objects[MSP_EXP432P401R_TIMER_T32_0],
-        .hwAttrs = &timerMSP432HWAttrs[MSP_EXP432P401R_TIMER_T32_0]
-    },
-    {
-        .fxnTablePtr = &TimerMSP432_Timer32_fxnTable,
-        .object = &timerMSP432Objects[MSP_EXP432P401R_TIMER_T32_1],
-        .hwAttrs = &timerMSP432HWAttrs[MSP_EXP432P401R_TIMER_T32_1]
-    },
-    {
-        .fxnTablePtr = &TimerMSP432_Timer_A_fxnTable,
-        .object = &timerMSP432Objects[MSP_EXP432P401R_TIMER_TA_1],
-        .hwAttrs = &timerMSP432HWAttrs[MSP_EXP432P401R_TIMER_TA_1]
-    },
     {
         .fxnTablePtr = &TimerMSP432_Timer_A_fxnTable,
         .object = &timerMSP432Objects[MSP_EXP432P401R_TIMER_TA_2],
         .hwAttrs = &timerMSP432HWAttrs[MSP_EXP432P401R_TIMER_TA_2]
     },
-    {
-        .fxnTablePtr = &TimerMSP432_Timer_A_fxnTable,
-        .object = &timerMSP432Objects[MSP_EXP432P401R_TIMER_TA_3],
-        .hwAttrs = &timerMSP432HWAttrs[MSP_EXP432P401R_TIMER_TA_3]
-    }
 };
 
 const uint_least8_t Timer_count = MSP_EXP432P401R_TIMERCOUNT;

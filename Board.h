@@ -65,7 +65,7 @@ extern "C" {
 #define Board_GPIO_LED_ON           MSP_EXP432P401R_GPIO_LED_ON
 #define Board_GPIO_LED_OFF          MSP_EXP432P401R_GPIO_LED_OFF
 
-#define Board_GPIO_LED0             MSP_EXP432P401R_GPIO_LED1
+//#define Board_GPIO_LED0             MSP_EXP432P401R_GPIO_LED1
 
 /*
  * MSP_EXP432P401R_GPIO_LED_GREEN & MSP_EXP432P401R_GPIO_LED_BLUE are used for
@@ -78,6 +78,7 @@ extern "C" {
 
 #define Board_GPIO_BUTTON0          MSP_EXP432P401R_GPIO_S1
 #define Board_GPIO_BUTTON1          MSP_EXP432P401R_GPIO_S2
+#define Board_GPIO_REDLED           MSP_EXP432P401R_GPIO_LED1
 
 #define Board_I2C0                  MSP_EXP432P401R_I2CB0
 #define Board_I2C_TPL0401           MSP_EXP432P401R_I2CB0
@@ -96,11 +97,7 @@ extern "C" {
 #define Board_SPI2                  MSP_EXP432P401R_SPIB3
 #define Board_SPI3                  MSP_EXP432P401R_SPIB4
 
-#define Board_TIMER0                MSP_EXP432P401R_TIMER_T32_0
-#define Board_TIMER1                MSP_EXP432P401R_TIMER_T32_1
-#define Board_TIMER2                MSP_EXP432P401R_TIMER_TA_1
-#define Board_TIMER3                MSP_EXP432P401R_TIMER_TA_2
-#define Board_TIMER4                MSP_EXP432P401R_TIMER_TA_3
+#define Board_TIMER                 MSP_EXP432P401R_TIMER_TA_2
 
 #define Board_UART0                 MSP_EXP432P401R_UARTA0
 #define Board_UART1                 MSP_EXP432P401R_UARTA2
